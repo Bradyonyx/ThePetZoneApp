@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">The Pet Zone App</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="add_tank">Add Tank</string>
+    <string name="gallons"> Gallons</string>
+    <string name="fish"> Fish</string>
+    <string name="planted">Planted</string>
 </resources>
