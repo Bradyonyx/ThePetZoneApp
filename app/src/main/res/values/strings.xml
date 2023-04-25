@@ -4,4 +4,6 @@
     <string name="gallons"> Gallons</string>
     <string name="fish"> Fish</string>
     <string name="planted">Planted</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

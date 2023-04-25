@@ -9,5 +9,14 @@
         android:id="@+id/tankListFragment"
         android:name="com.example.thepetzoneapp.TankListFragment"
         android:label="fragment_tank_list"
-        tools:layout="@layout/fragment_tank_list" />
+        tools:layout="@layout/fragment_tank_list" >
+        <action
+            android:id="@+id/action_tankListFragment_to_tankInfoUserInputFragment"
+            app:destination="@id/tankInfoUserInputFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/tankInfoUserInputFragment"
+        android:name="com.example.thepetzoneapp.TankInfoUserInputFragment"
+        android:label="fragment_tank_info_user_input"
+        tools:layout="@layout/fragment_tank_info_user_input" />
 </navigation>

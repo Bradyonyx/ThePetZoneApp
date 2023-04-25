@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 import com.example.thepetzoneapp.databinding.FragmentTankListBinding
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.ktx.database
@@ -21,6 +22,9 @@ class TankListFragment : Fragment() {
     ): View? {
         _binding = FragmentTankListBinding.inflate(inflater,container,false)
         dbRef = Firebase.database.reference
+        binding.addTankButton.setOnClickListener {
+            binding.addTankButton.findNavController().navigate(TankListFragmentDirections.actionTankListFragmentToTankInfoUserInputFragment())
+        }
         return binding.root
     }
 }
