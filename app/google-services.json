@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "465781648061",
+    "project_id": "thepetzoneapp",
+    "storage_bucket": "thepetzoneapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:465781648061:android:3ede021a4a6a66af6e65d4",
+        "android_client_info": {
+          "package_name": "com.example.thepetzoneapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "465781648061-unro6jf4unlpin94ajmjldhb906q8rns.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCEnulqGTAqFW0mwmJn8cuZQfTjd1CiAyE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "465781648061-unro6jf4unlpin94ajmjldhb906q8rns.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
