@@ -9,6 +9,20 @@
 
 
     <TextView
+        android:id="@+id/planted_prompt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Planted:"
+        android:textColor="@color/text_black"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:fontFamily="@font/jura_bold"
+        app:layout_constraintEnd_toEndOf="@+id/num_fish_prompt"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/avg_fish_length_prompt" />
+
+    <TextView
         android:id="@+id/avg_fish_length_prompt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -114,4 +128,11 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tank_size_prompt"
         app:layout_constraintVertical_bias="0.15" />
+
+    <Switch
+        android:id="@+id/switch1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBaseline_toBaselineOf="@+id/planted_prompt"
+        app:layout_constraintStart_toStartOf="@+id/avg_fish_length_input" />
 </androidx.constraintlayout.widget.ConstraintLayout>
