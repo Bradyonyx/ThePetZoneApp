@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:text="Tank Size:"
         android:textColor="@color/text_black"
-        android:textSize="24sp"
+        android:textSize="28sp"
         android:textStyle="bold"
         app:fontFamily="@font/jura_bold"
         app:layout_constraintStart_toStartOf="parent"
@@ -27,9 +27,19 @@
         android:text="Gal"
         android:textColor="@color/text_black"
         android:textSize="24sp"
-        android:textStyle="bold"
         app:fontFamily="@font/jura_bold"
         app:layout_constraintBaseline_toBaselineOf="@+id/tank_size_prompt"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/fish_unit_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Fish"
+        android:textColor="@color/text_black"
+        android:textSize="24sp"
+        app:fontFamily="@font/jura_bold"
+        app:layout_constraintBaseline_toBaselineOf="@+id/num_fish_prompt"
         app:layout_constraintEnd_toEndOf="parent" />
 
     <EditText
@@ -37,9 +47,34 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="number"
         android:hint="Gallons in tank"
+        android:inputType="number"
         android:textColor="@color/text_light_grey"
         app:layout_constraintBaseline_toBaselineOf="@+id/tank_size_prompt"
         app:layout_constraintStart_toEndOf="@+id/tank_size_prompt" />
+
+    <EditText
+        android:id="@+id/num_fish_input"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Fish in tank"
+        android:inputType="number"
+        android:textColor="@color/text_light_grey"
+        app:layout_constraintBaseline_toBaselineOf="@+id/num_fish_prompt"
+        app:layout_constraintStart_toEndOf="@+id/num_fish_prompt" />
+
+    <TextView
+        android:id="@+id/num_fish_prompt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Number of Fish:"
+        android:textColor="@color/text_black"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:fontFamily="@font/jura_bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tank_size_prompt"
+        app:layout_constraintVertical_bias="0.15" />
 </androidx.constraintlayout.widget.ConstraintLayout>
