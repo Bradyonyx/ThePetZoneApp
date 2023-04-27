@@ -1,14 +1,97 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_margin="32dp"
     tools:context=".CalcGalFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
 
-</FrameLayout>
+    <Button
+        android:id="@+id/calculate_info_button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:text="Calculate"
+        android:textSize="26sp"
+        android:textStyle="bold"
+        app:fontFamily="@font/jura_bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/depth_prompt" />
+
+    <EditText
+        android:id="@+id/depth_input"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="height of tank"
+        android:inputType="number"
+        android:textColor="@color/text_light_grey"
+        app:layout_constraintBaseline_toBaselineOf="@+id/depth_prompt"
+        app:layout_constraintStart_toStartOf="@+id/length_input" />
+
+    <EditText
+        android:id="@+id/width_input"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="width of tank"
+        android:inputType="number"
+        android:textColor="@color/text_light_grey"
+        app:layout_constraintBaseline_toBaselineOf="@+id/width_prompt"
+        app:layout_constraintStart_toStartOf="@+id/length_input" />
+
+    <EditText
+        android:id="@+id/length_input"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="length of tank"
+        android:inputType="number"
+        android:textColor="@color/text_light_grey"
+        app:layout_constraintBaseline_toBaselineOf="@+id/length_prompt"
+        app:layout_constraintStart_toEndOf="@+id/length_prompt" />
+
+    <TextView
+        android:id="@+id/depth_prompt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Depth:"
+        android:textColor="@color/text_black"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        app:fontFamily="@font/jura_bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/width_prompt" />
+
+    <TextView
+        android:id="@+id/width_prompt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Width:"
+        android:textColor="@color/text_black"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        app:fontFamily="@font/jura_bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/length_prompt" />
+
+    <TextView
+        android:id="@+id/length_prompt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:text="Length: "
+        android:textColor="@color/text_black"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        app:fontFamily="@font/jura_bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
