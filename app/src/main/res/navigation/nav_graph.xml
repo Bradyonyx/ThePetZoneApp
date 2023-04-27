@@ -18,5 +18,14 @@
         android:id="@+id/tankInfoUserInputFragment"
         android:name="com.example.thepetzoneapp.TankInfoUserInputFragment"
         android:label="fragment_tank_info_user_input"
-        tools:layout="@layout/fragment_tank_info_user_input" />
+        tools:layout="@layout/fragment_tank_info_user_input" >
+        <action
+            android:id="@+id/action_tankInfoUserInputFragment_to_calcGalFragment"
+            app:destination="@id/calcGalFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/calcGalFragment"
+        android:name="com.example.thepetzoneapp.CalcGalFragment"
+        android:label="fragment_calc_gal"
+        tools:layout="@layout/fragment_calc_gal" />
 </navigation>

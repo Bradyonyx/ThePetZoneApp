@@ -12,30 +12,25 @@
         android:id="@+id/planted_prompt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
         android:text="Planted:"
         android:textColor="@color/text_black"
-        android:textSize="24sp"
+        android:textSize="28sp"
         android:textStyle="bold"
         app:fontFamily="@font/jura_bold"
-        app:layout_constraintEnd_toEndOf="@+id/num_fish_prompt"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/avg_fish_length_prompt" />
+        app:layout_constraintTop_toBottomOf="@+id/avg_fish_length_input" />
 
     <TextView
         android:id="@+id/avg_fish_length_prompt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
         android:gravity="center_horizontal"
-        android:text="Average Fish\nLength: "
+        android:text="Average Fish Length: "
         android:textColor="@color/text_black"
-        android:textSize="24sp"
+        android:textSize="28sp"
         android:textStyle="bold"
         app:fontFamily="@font/jura_bold"
-        app:layout_constraintEnd_toStartOf="@+id/num_fish_input"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/num_fish_prompt" />
+        app:layout_constraintTop_toBottomOf="@+id/num_fish_input" />
 
     <TextView
         android:id="@+id/tank_size_prompt"
@@ -68,8 +63,8 @@
         android:textColor="@color/text_black"
         android:textSize="24sp"
         app:fontFamily="@font/jura_bold"
-        app:layout_constraintBaseline_toBaselineOf="@+id/num_fish_prompt"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintBaseline_toBaselineOf="@+id/num_fish_input"
+        app:layout_constraintStart_toEndOf="@+id/num_fish_input" />
 
     <TextView
         android:id="@+id/inch_unit_label"
@@ -79,8 +74,8 @@
         android:textColor="@color/text_black"
         android:textSize="24sp"
         app:fontFamily="@font/jura_bold"
-        app:layout_constraintBaseline_toBaselineOf="@+id/avg_fish_length_prompt"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintBaseline_toBaselineOf="@+id/avg_fish_length_input"
+        app:layout_constraintStart_toEndOf="@+id/avg_fish_length_input" />
 
     <EditText
         android:id="@+id/tank_size_input"
@@ -101,19 +96,19 @@
         android:hint="Fish in tank"
         android:inputType="number"
         android:textColor="@color/text_light_grey"
-        app:layout_constraintBaseline_toBaselineOf="@+id/num_fish_prompt"
-        app:layout_constraintStart_toEndOf="@+id/num_fish_prompt" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/num_fish_prompt" />
 
     <EditText
         android:id="@+id/avg_fish_length_input"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="Avg length"
+        android:hint="Approximate avg length"
         android:inputType="number"
         android:textColor="@color/text_light_grey"
-        app:layout_constraintBaseline_toBaselineOf="@+id/avg_fish_length_prompt"
-        app:layout_constraintStart_toStartOf="@+id/num_fish_input" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/avg_fish_length_prompt" />
 
     <TextView
         android:id="@+id/num_fish_prompt"
@@ -121,18 +116,46 @@
         android:layout_height="wrap_content"
         android:text="Number of Fish: "
         android:textColor="@color/text_black"
-        android:textSize="24sp"
+        android:textSize="28sp"
         android:textStyle="bold"
         app:fontFamily="@font/jura_bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tank_size_prompt"
-        app:layout_constraintVertical_bias="0.15" />
+        app:layout_constraintVertical_bias="0.30" />
 
     <Switch
-        android:id="@+id/switch1"
+        android:id="@+id/planted_switch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBaseline_toBaselineOf="@+id/planted_prompt"
-        app:layout_constraintStart_toStartOf="@+id/avg_fish_length_input" />
+        app:layout_constraintStart_toEndOf="@+id/planted_prompt" />
+
+    <Button
+        android:id="@+id/calculate_info_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:text="Calculate"
+        android:textSize="26sp"
+        android:textStyle="bold"
+        app:fontFamily="@font/jura_bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/planted_prompt"
+        app:layout_constraintVertical_bias="0.65" />
+
+    <Button
+        android:id="@+id/calculate_gallon_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Calc. Gal"
+        android:textAllCaps="false"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:fontFamily="@font/jura_bold"
+        app:layout_constraintEnd_toEndOf="@+id/tank_size_prompt"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tank_size_prompt" />
 </androidx.constraintlayout.widget.ConstraintLayout>
