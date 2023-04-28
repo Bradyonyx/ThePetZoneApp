@@ -9,7 +9,7 @@
 
 
     <Button
-        android:id="@+id/calculate_info_button2"
+        android:id="@+id/calculate_gallon_data_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="8dp"

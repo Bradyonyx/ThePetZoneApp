@@ -18,8 +18,8 @@ class TankInfoUserInputFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentTankInfoUserInputBinding.inflate(inflater,container,false)
-        binding.calculateGallonButton.setOnClickListener {
-            binding.calculateGallonButton.findNavController().navigate(TankInfoUserInputFragmentDirections.actionTankInfoUserInputFragmentToCalcGalFragment())
+        binding.calculateGallonPromptButton.setOnClickListener {
+            binding.calculateGallonPromptButton.findNavController().navigate(TankInfoUserInputFragmentDirections.actionTankInfoUserInputFragmentToCalcGalFragment())
         }
         return binding.root
     }
