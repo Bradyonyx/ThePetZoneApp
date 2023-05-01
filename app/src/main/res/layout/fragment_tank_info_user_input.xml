@@ -30,6 +30,7 @@
         android:textSize="28sp"
         android:textStyle="bold"
         app:fontFamily="@font/jura_bold"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/num_fish_input" />
 
     <TextView
