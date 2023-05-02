@@ -14,7 +14,15 @@ class TankViewModel : ViewModel() {
 
     fun addTank() {
         tankNum++
-        tankList.add(Tank("Tank "+tankNum,0,0, 0))
+        tankList.add(Tank("Tank "+tankNum,0.0,0, 0))
+        updateTankList()
+    }
+
+    fun updateTankList() {
         _observableTankList.value = tankList
+    }
+
+    fun setGal(gal: Double) {
+        tankList[tankNum-1].tankSize = gal
     }
 }
