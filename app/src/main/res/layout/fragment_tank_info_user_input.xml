@@ -58,6 +58,18 @@
         app:layout_constraintEnd_toEndOf="parent" />
 
     <TextView
+        android:id="@+id/tank_size_calculated"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/text_black"
+        android:textSize="24sp"
+        app:fontFamily="@font/jura_bold"
+        app:layout_constraintBaseline_toBaselineOf="@+id/tank_size_prompt"
+        app:layout_constraintEnd_toStartOf="@+id/gal_unit_label"
+        app:layout_constraintHorizontal_bias="0.85"
+        app:layout_constraintStart_toEndOf="@+id/tank_size_prompt" />
+
+    <TextView
         android:id="@+id/fish_unit_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -86,7 +98,7 @@
         android:ems="10"
         android:hint="Gallons in tank"
         android:inputType="number"
-        android:textColor="@color/text_light_grey"
+        android:textColor="@color/text_grey"
         app:layout_constraintBaseline_toBaselineOf="@+id/tank_size_prompt"
         app:layout_constraintStart_toEndOf="@+id/tank_size_prompt" />
 
@@ -97,7 +109,7 @@
         android:ems="10"
         android:hint="Fish in tank"
         android:inputType="number"
-        android:textColor="@color/text_light_grey"
+        android:textColor="@color/text_grey"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/num_fish_prompt" />
 
@@ -108,7 +120,7 @@
         android:ems="10"
         android:hint="Approximate avg length"
         android:inputType="number"
-        android:textColor="@color/text_light_grey"
+        android:textColor="@color/text_grey"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/avg_fish_length_prompt" />
 
