@@ -24,7 +24,7 @@ class TankViewModel : ViewModel() {
 
     fun setGal(gal: Double) {
         tankList.find{it.tankName == "Tank 1"}?.tankSize = gal
-
+        updateTankList()
     }
 
     fun getTankSize(): Double {

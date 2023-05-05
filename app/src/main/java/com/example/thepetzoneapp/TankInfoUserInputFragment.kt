@@ -16,29 +16,28 @@ class TankInfoUserInputFragment : Fragment() {
     private var _binding: FragmentTankInfoUserInputBinding? = null
     private val binding get() = _binding!!
     private val viewModel : TankViewModel by viewModels()
-    //val tankNum = viewModel.tankNum
+    val tankNum = 1
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentTankInfoUserInputBinding.inflate(inflater,container,false)
-//        viewModel.observableTankList.observe(viewLifecycleOwner, Observer {tankSize ->
-//            if(viewModel.tankList[tankNum].tankSize != 0.0) {
-//                binding.tankSizeInput.setVisibility(INVISIBLE)
-//                binding.tankSizeCalculated.text = viewModel.tankList[tankNum].tankSize.toString()
-//            }
-//        })
+        viewModel.observableTankList.observe(viewLifecycleOwner) {
+            binding.tankSizeCalculated.text = viewModel.tankList.find{it.tankName == "Tank 1"}?.tankSize.toString()
+            if(binding.tankSizeCalculated.text == "test") binding.tankSizeCalculated.setVisibility(INVISIBLE)
+            else binding.tankSizeInput.setVisibility(INVISIBLE)
+        }
         binding.calculateGallonPromptButton.setOnClickListener {
             binding.calculateGallonPromptButton.findNavController().navigate(TankInfoUserInputFragmentDirections.actionTankInfoUserInputFragmentToCalcGalFragment())
         }
         binding.calculateInfoButton.setOnClickListener {
-//            if(binding.tankSizeCalculated.text == "") {
-//                viewModel.setGal(0.0 + Integer.parseInt(binding.tankSizeInput.text.toString()))
-//            }
-//            else {
-//                viewModel.setGal(binding.tankSizeCalculated.text.toString().toDouble())
-//            }
+            if(binding.tankSizeCalculated.text == "") {
+                viewModel.setGal(0.0 + Integer.parseInt(binding.tankSizeInput.text.toString()))
+            }
+            else {
+                viewModel.setGal(binding.tankSizeCalculated.text.toString().toDouble())
+            }
         }
         return binding.root
     }
