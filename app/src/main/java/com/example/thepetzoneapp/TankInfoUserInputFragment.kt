@@ -16,7 +16,6 @@ class TankInfoUserInputFragment : Fragment() {
     private var _binding: FragmentTankInfoUserInputBinding? = null
     private val binding get() = _binding!!
     private val viewModel : TankViewModel by viewModels()
-    val tankNum = 1
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -24,8 +23,9 @@ class TankInfoUserInputFragment : Fragment() {
     ): View? {
         _binding = FragmentTankInfoUserInputBinding.inflate(inflater,container,false)
         viewModel.observableTankList.observe(viewLifecycleOwner) {
-            binding.tankSizeCalculated.text = viewModel.tankList.find{it.tankName == "Tank 1"}?.tankSize.toString()
-            if(binding.tankSizeCalculated.text == "test") binding.tankSizeCalculated.setVisibility(INVISIBLE)
+            if(viewModel.getTankSize(0) > 0.0)
+            binding.tankSizeCalculated.text = viewModel.getTankSize(0).toString()
+            if(binding.tankSizeCalculated.text == "") binding.tankSizeCalculated.setVisibility(INVISIBLE)
             else binding.tankSizeInput.setVisibility(INVISIBLE)
         }
         binding.calculateGallonPromptButton.setOnClickListener {
@@ -38,6 +38,7 @@ class TankInfoUserInputFragment : Fragment() {
             else {
                 viewModel.setGal(binding.tankSizeCalculated.text.toString().toDouble())
             }
+            viewModel.setTankInfo(Integer.parseInt(binding.numFishInput.text.toString()),Integer.parseInt(binding.avgFishLengthInput.text.toString()),binding.plantedSwitch.isActivated)
         }
         return binding.root
     }

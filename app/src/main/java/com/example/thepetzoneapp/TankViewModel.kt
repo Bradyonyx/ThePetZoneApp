@@ -14,7 +14,7 @@ class TankViewModel : ViewModel() {
 
     fun addTank() {
         tankNum++
-        tankList.add(Tank("Tank "+tankNum,0.0,0, 0))
+        tankList.add(Tank("Tank "+tankNum,0.0,0,0))
         updateTankList()
     }
 
@@ -23,11 +23,20 @@ class TankViewModel : ViewModel() {
     }
 
     fun setGal(gal: Double) {
-        tankList.find{it.tankName == "Tank 1"}?.tankSize = gal
+        tankList.find{it.tankName == "Tank "+tankNum}?.tankSize = gal
         updateTankList()
     }
 
-    fun getTankSize(): Double {
-        return tankList[tankNum-1].tankSize
+    fun setTankInfo(numFish: Int, avgFishLength: Int, planted: Boolean) {
+        tankList.find{it.tankName == "Tank "+tankNum}?.numFish = numFish
+        tankList.find{it.tankName == "Tank "+tankNum}?.avgFishLength = avgFishLength
+        tankList.find{it.tankName == "Tank "+tankNum}?.planted = planted
+        updateTankList()
+    }
+
+    fun getTankSize(tankIndex: Int): Double {
+        val listSize = _observableTankList.value?.size ?: 0
+        if(listSize > 0) return _observableTankList.value?.get(tankIndex)!!.tankSize
+        return 0.0
     }
 }
