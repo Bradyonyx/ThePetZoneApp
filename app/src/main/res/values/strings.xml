@@ -4,6 +4,10 @@
     <string name="gallons"> Gallons</string>
     <string name="fish"> Fish</string>
     <string name="planted">Planted</string>
-    <!-- TODO: Remove or change this placeholder text -->
+    <string name="wtr_chng_info1">Perform a </string>
+    <string name="wtr_chng_info2">% water change once every </string>
+    <string name="wtr_chng_info_base">Water change info being calculated.</string>
+    <string name="week">week.</string>
+    <string name="month">month.</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

@@ -22,10 +22,18 @@
         <action
             android:id="@+id/action_tankInfoUserInputFragment_to_calcGalFragment"
             app:destination="@id/calcGalFragment" />
+        <action
+            android:id="@+id/action_tankInfoUserInputFragment_to_calculatedWaterChangeFragment"
+            app:destination="@id/calculatedWaterChangeFragment" />
     </fragment>
     <fragment
         android:id="@+id/calcGalFragment"
         android:name="com.example.thepetzoneapp.CalcGalFragment"
         android:label="fragment_calc_gal"
         tools:layout="@layout/fragment_calc_gal" />
+    <fragment
+        android:id="@+id/calculatedWaterChangeFragment"
+        android:name="com.example.thepetzoneapp.CalculatedWaterChangeFragment"
+        android:label="fragment_calculated_water_change"
+        tools:layout="@layout/fragment_calculated_water_change" />
 </navigation>

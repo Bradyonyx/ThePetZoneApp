@@ -39,6 +39,7 @@ class TankInfoUserInputFragment : Fragment() {
                 viewModel.setGal(binding.tankSizeCalculated.text.toString().toDouble())
             }
             viewModel.setTankInfo(Integer.parseInt(binding.numFishInput.text.toString()),Integer.parseInt(binding.avgFishLengthInput.text.toString()),binding.plantedSwitch.isActivated)
+            binding.calculateInfoButton.findNavController().navigate(TankInfoUserInputFragmentDirections.actionTankInfoUserInputFragmentToCalculatedWaterChangeFragment())
         }
         return binding.root
     }
