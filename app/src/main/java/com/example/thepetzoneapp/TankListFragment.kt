@@ -30,7 +30,7 @@ class TankListFragment : Fragment() {
         })
         binding.addTankButton.setOnClickListener {
             viewModel.addTank()
-            binding.addTankButton.findNavController().navigate(TankListFragmentDirections.actionTankListFragmentToTankInfoUserInputFragment())
+            binding.addTankButton.findNavController().navigate(TankListFragmentDirections.actionTankListFragmentToTankInfoUserInputFragment(viewModel.tankNum))
         }
         return binding.root
     }

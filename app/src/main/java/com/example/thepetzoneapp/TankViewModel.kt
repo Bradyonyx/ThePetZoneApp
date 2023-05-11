@@ -14,7 +14,7 @@ class TankViewModel : ViewModel() {
 
     fun addTank() {
         tankNum++
-        tankList.add(Tank("Tank "+tankNum,0.0,0,0))
+        tankList.add(Tank(tankNum,"Tank "+tankNum,0.0,0,0))
         updateTankList()
     }
 

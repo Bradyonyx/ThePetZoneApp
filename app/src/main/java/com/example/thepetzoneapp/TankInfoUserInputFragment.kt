@@ -16,15 +16,18 @@ class TankInfoUserInputFragment : Fragment() {
     private var _binding: FragmentTankInfoUserInputBinding? = null
     private val binding get() = _binding!!
     private val viewModel : TankViewModel by viewModels()
+    var tankNumIndex = 0
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentTankInfoUserInputBinding.inflate(inflater,container,false)
+        val args = TankInfoUserInputFragmentArgs.fromBundle((requireArguments()))
+        tankNumIndex = args.tankNum - 1
         viewModel.observableTankList.observe(viewLifecycleOwner) {
-            if(viewModel.getTankSize(0) > 0.0)
-            binding.tankSizeCalculated.text = viewModel.getTankSize(0).toString()
+            if(viewModel.getTankSize(tankNumIndex) > 0.0)
+            binding.tankSizeCalculated.text = viewModel.getTankSize(tankNumIndex).toString()
             if(binding.tankSizeCalculated.text == "") binding.tankSizeCalculated.setVisibility(INVISIBLE)
             else binding.tankSizeInput.setVisibility(INVISIBLE)
         }
@@ -39,7 +42,7 @@ class TankInfoUserInputFragment : Fragment() {
                 viewModel.setGal(binding.tankSizeCalculated.text.toString().toDouble())
             }
             viewModel.setTankInfo(Integer.parseInt(binding.numFishInput.text.toString()),Integer.parseInt(binding.avgFishLengthInput.text.toString()),binding.plantedSwitch.isActivated)
-            binding.calculateInfoButton.findNavController().navigate(TankInfoUserInputFragmentDirections.actionTankInfoUserInputFragmentToCalculatedWaterChangeFragment())
+            binding.calculateInfoButton.findNavController().navigate(TankInfoUserInputFragmentDirections.actionTankInfoUserInputFragmentToCalculatedWaterChangeFragment(tankNumIndex))
         }
         return binding.root
     }

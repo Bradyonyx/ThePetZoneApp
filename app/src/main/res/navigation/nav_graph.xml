@@ -25,6 +25,9 @@
         <action
             android:id="@+id/action_tankInfoUserInputFragment_to_calculatedWaterChangeFragment"
             app:destination="@id/calculatedWaterChangeFragment" />
+        <argument
+            android:name="tankNum"
+            app:argType="integer" />
     </fragment>
     <fragment
         android:id="@+id/calcGalFragment"
@@ -35,5 +38,9 @@
         android:id="@+id/calculatedWaterChangeFragment"
         android:name="com.example.thepetzoneapp.CalculatedWaterChangeFragment"
         android:label="fragment_calculated_water_change"
-        tools:layout="@layout/fragment_calculated_water_change" />
+        tools:layout="@layout/fragment_calculated_water_change" >
+        <argument
+            android:name="tankNum"
+            app:argType="integer" />
+    </fragment>
 </navigation>
