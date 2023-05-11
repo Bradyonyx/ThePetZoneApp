@@ -39,4 +39,22 @@ class TankViewModel : ViewModel() {
         if(listSize > 0) return _observableTankList.value?.get(tankIndex)!!.tankSize
         return 0.0
     }
+
+    fun getNumFish(tankIndex: Int): Int {
+        val listSize = _observableTankList.value?.size ?: 0
+        if(listSize > 0) return _observableTankList.value?.get(tankIndex)!!.numFish
+        return 0
+    }
+
+    fun getAverageFishLength(tankIndex: Int): Int {
+        val listSize = _observableTankList.value?.size ?: 0
+        if(listSize > 0) return _observableTankList.value?.get(tankIndex)!!.avgFishLength
+        return 0
+    }
+
+    fun getPlanted(tankIndex: Int): Boolean {
+        val listSize = _observableTankList.value?.size ?: 0
+        if(listSize > 0) return _observableTankList.value?.get(tankIndex)!!.planted
+        return false
+    }
 }
