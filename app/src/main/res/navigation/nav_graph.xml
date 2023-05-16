@@ -33,7 +33,11 @@
         android:id="@+id/calcGalFragment"
         android:name="com.example.thepetzoneapp.CalcGalFragment"
         android:label="fragment_calc_gal"
-        tools:layout="@layout/fragment_calc_gal" />
+        tools:layout="@layout/fragment_calc_gal" >
+        <argument
+            android:name="tankNum"
+            app:argType="integer" />
+    </fragment>
     <fragment
         android:id="@+id/calculatedWaterChangeFragment"
         android:name="com.example.thepetzoneapp.CalculatedWaterChangeFragment"
