@@ -5,7 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.viewModels
+import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.findNavController
 import com.example.thepetzoneapp.databinding.FragmentTankListBinding
@@ -17,7 +17,7 @@ class TankListFragment : Fragment() {
     private var _binding: FragmentTankListBinding? = null
     private val binding get() = _binding!!
     lateinit var dbRef : DatabaseReference
-    private val viewModel : TankViewModel by viewModels()
+    private val viewModel : TankViewModel by activityViewModels ()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -30,7 +30,7 @@ class TankListFragment : Fragment() {
         })
         binding.addTankButton.setOnClickListener {
             viewModel.addTank()
-            binding.addTankButton.findNavController().navigate(TankListFragmentDirections.actionTankListFragmentToTankInfoUserInputFragment(viewModel.tankNum))
+            binding.addTankButton.findNavController().navigate(TankListFragmentDirections.actionTankListFragmentToTankInfoUserInputFragment(viewModel.tankNumber))
         }
         return binding.root
     }
