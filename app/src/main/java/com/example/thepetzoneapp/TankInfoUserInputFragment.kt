@@ -13,6 +13,7 @@ import androidx.lifecycle.Observer
 import androidx.navigation.findNavController
 import com.example.thepetzoneapp.databinding.FragmentTankInfoUserInputBinding
 import com.example.thepetzoneapp.databinding.FragmentTankListBinding
+import java.text.DecimalFormat
 
 class TankInfoUserInputFragment : Fragment() {
     private var _binding: FragmentTankInfoUserInputBinding? = null
@@ -27,10 +28,9 @@ class TankInfoUserInputFragment : Fragment() {
         _binding = FragmentTankInfoUserInputBinding.inflate(inflater,container,false)
         val args = TankInfoUserInputFragmentArgs.fromBundle((requireArguments()))
         tankNumIndex = args.tankNum
-        var checkSize = viewModel.getTankSize(tankNumIndex)
         if(viewModel.getTankSize(tankNumIndex) > 0.0){
-
-            binding.tankSizeCalculated.text = viewModel.getTankSize(tankNumIndex).toString()
+            val dec = DecimalFormat("#,###.0")
+            binding.tankSizeCalculated.text = dec.format(viewModel.getTankSize(tankNumIndex)).toString()
             binding.tankSizeInput.setVisibility(INVISIBLE)
         }
         binding.calculateGallonPromptButton.setOnClickListener {

@@ -15,7 +15,6 @@ class TankViewModel : ViewModel() {
     fun addTank() {
         tankNumber++
         tankList.add(Tank(tankNumber,"Tank "+tankNumber,0.0,0,0))
-        var showTankNum = tankList.find {it.tankName == "Tank 1"}?.tankNum
         updateObservableTankList()
     }
 
@@ -25,7 +24,6 @@ class TankViewModel : ViewModel() {
 
     fun setGal(tankIndex: Int, gal: Double) {
         tankList.find{it.tankNum == tankIndex}?.tankSize = gal
-        var checkGal = tankList.find{it.tankNum == tankIndex}?.tankSize
     }
 
     fun setTankInfo(tankIndex: Int, numFish: Int, avgFishLength: Int, planted: Boolean) {
@@ -35,9 +33,7 @@ class TankViewModel : ViewModel() {
     }
 
     fun getTankSize(tankIndex: Int): Double {
-        var tankListSize = tankNumber
-        if(tankNumber > 0) return tankList.find{it.tankNum == tankIndex}!!.tankSize
-        return 0.0
+        return tankList.find{it.tankNum == tankIndex}!!.tankSize
     }
 
     fun getNumFish(tankIndex: Int): Int {
