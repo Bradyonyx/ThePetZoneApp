@@ -5,7 +5,7 @@
     <string name="fish"> Fish</string>
     <string name="planted">Planted</string>
     <string name="wtr_chng_info1">Perform a </string>
-    <string name="wtr_chng_info2">% water change once every </string>
+    <string name="wtr_chng_info2"> water change once every </string>
     <string name="wtr_chng_info_base">Water change info being calculated.</string>
     <string name="week"> week.</string>
     <string name="month"> month.</string>
