@@ -19,6 +19,6 @@ class TankViewHolder (val binding: ListItemLayoutBinding) : RecyclerView.ViewHol
         binding.tankName.text = currentTank.tankName
         binding.tankSize.text = currentTank.tankSize.toString() + " Gallons"
         binding.numFish.text = currentTank.numFish.toString() + " Fish"
-        if(currentTank.planted) binding.planted.setVisibility(INVISIBLE)
+        if(!currentTank.planted) binding.planted.setVisibility(INVISIBLE)
     }
 }
