@@ -51,11 +51,12 @@ class CalculatedWaterChangeFragment : Fragment() {
         val afl = viewModel.getAverageFishLength(tankNumIndex)
         val vol1 = viewModel.getTankSize(tankNumIndex)
         var nitrateProductionPerWeek = (afl*0.4*nf*7)/ vol1
+        if(viewModel.getPlanted(tankNumIndex)) nitrateProductionPerWeek = nitrateProductionPerWeek/2
         if(nitrateProductionPerWeek<1.0){
             weekly = false
             nitrateProductionPerWeek = (afl*0.4*nf*30)/ vol1
+            if(viewModel.getPlanted(tankNumIndex)) nitrateProductionPerWeek = nitrateProductionPerWeek/2
         }
-        if(viewModel.getPlanted(tankNumIndex)) nitrateProductionPerWeek = nitrateProductionPerWeek/2
         return nitrateProductionPerWeek
     }
 }
