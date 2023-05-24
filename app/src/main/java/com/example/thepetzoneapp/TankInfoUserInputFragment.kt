@@ -34,6 +34,8 @@ class TankInfoUserInputFragment : Fragment() {
             binding.tankSizeInput.setVisibility(INVISIBLE)
         }
         binding.plantedSwitch.setChecked(viewModel.getPlanted(tankNumIndex))
+        if(viewModel.getNumFish(tankNumIndex)>0) binding.numFishInput.setText(viewModel.getNumFish(tankNumIndex).toString())
+        if(viewModel.getAverageFishLength(tankNumIndex)>0) binding.avgFishLengthInput.setText(viewModel.getAverageFishLength(tankNumIndex).toString())
         binding.calculateGallonPromptButton.setOnClickListener {
             binding.calculateGallonPromptButton.findNavController().navigate(TankInfoUserInputFragmentDirections.actionTankInfoUserInputFragmentToCalcGalFragment(tankNumIndex))
         }
