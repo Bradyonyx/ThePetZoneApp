@@ -7,6 +7,8 @@ import android.view.View
 import android.view.View.INVISIBLE
 import android.view.View.VISIBLE
 import android.view.ViewGroup
+import android.widget.Toast
+import android.widget.Toast.LENGTH_SHORT
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
@@ -40,14 +42,20 @@ class TankInfoUserInputFragment : Fragment() {
             binding.calculateGallonPromptButton.findNavController().navigate(TankInfoUserInputFragmentDirections.actionTankInfoUserInputFragmentToCalcGalFragment(tankNumIndex))
         }
         binding.calculateInfoButton.setOnClickListener {
-            if(binding.tankSizeCalculated.text == "") {
-                viewModel.setGal(tankNumIndex,0.0 + Integer.parseInt(binding.tankSizeInput.text.toString()))
+            var tankSizeInputText = binding.tankSizeInput.text.toString()
+            var numFishInputText = binding.numFishInput.text.toString()
+            var avgFishLengthInputText = binding.avgFishLengthInput.text.toString()
+            if((binding.tankSizeCalculated.text != "" || tankSizeInputText != "") && numFishInputText != "" && avgFishLengthInputText != "") {
+                if(binding.tankSizeCalculated.text == "") {
+                    viewModel.setGal(tankNumIndex,0.0 + Integer.parseInt(binding.tankSizeInput.text.toString()))
+                }
+                else {
+                    viewModel.setGal(tankNumIndex, binding.tankSizeCalculated.text.toString().toDouble())
+                }
+                viewModel.setTankInfo(tankNumIndex,Integer.parseInt(binding.numFishInput.text.toString()),Integer.parseInt(binding.avgFishLengthInput.text.toString()),binding.plantedSwitch.isChecked)
+                binding.calculateInfoButton.findNavController().navigate(TankInfoUserInputFragmentDirections.actionTankInfoUserInputFragmentToCalculatedWaterChangeFragment(tankNumIndex))
             }
-            else {
-                viewModel.setGal(tankNumIndex, binding.tankSizeCalculated.text.toString().toDouble())
-            }
-            viewModel.setTankInfo(tankNumIndex,Integer.parseInt(binding.numFishInput.text.toString()),Integer.parseInt(binding.avgFishLengthInput.text.toString()),binding.plantedSwitch.isChecked)
-            binding.calculateInfoButton.findNavController().navigate(TankInfoUserInputFragmentDirections.actionTankInfoUserInputFragmentToCalculatedWaterChangeFragment(tankNumIndex))
+            else Toast.makeText(context,R.string.warning,LENGTH_SHORT).show()
         }
         return binding.root
     }
