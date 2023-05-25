@@ -5,16 +5,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.View.INVISIBLE
-import android.view.View.VISIBLE
 import android.view.ViewGroup
 import android.widget.Toast
 import android.widget.Toast.LENGTH_SHORT
 import androidx.fragment.app.activityViewModels
-import androidx.fragment.app.viewModels
-import androidx.lifecycle.Observer
 import androidx.navigation.findNavController
 import com.example.thepetzoneapp.databinding.FragmentTankInfoUserInputBinding
-import com.example.thepetzoneapp.databinding.FragmentTankListBinding
 import java.text.DecimalFormat
 
 class TankInfoUserInputFragment : Fragment() {
@@ -42,9 +38,9 @@ class TankInfoUserInputFragment : Fragment() {
             binding.calculateGallonPromptButton.findNavController().navigate(TankInfoUserInputFragmentDirections.actionTankInfoUserInputFragmentToCalcGalFragment(tankNumIndex))
         }
         binding.calculateInfoButton.setOnClickListener {
-            var tankSizeInputText = binding.tankSizeInput.text.toString()
-            var numFishInputText = binding.numFishInput.text.toString()
-            var avgFishLengthInputText = binding.avgFishLengthInput.text.toString()
+            val tankSizeInputText = binding.tankSizeInput.text.toString()
+            val numFishInputText = binding.numFishInput.text.toString()
+            val avgFishLengthInputText = binding.avgFishLengthInput.text.toString()
             if((binding.tankSizeCalculated.text != "" || tankSizeInputText != "") && numFishInputText != "" && avgFishLengthInputText != "") {
                 if(binding.tankSizeCalculated.text == "") {
                     viewModel.setGal(tankNumIndex,0.0 + Integer.parseInt(binding.tankSizeInput.text.toString()))
