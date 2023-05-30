@@ -1,6 +1,6 @@
 package com.example.thepetzoneapp
 
-data class Tank (val tankNum: Int, val tankName: String, var tankSize: Double,
-                 var numFish: Int, var avgFishLength: Int, var planted: Boolean = false,
+data class Tank (var tankNum: Int = 0, var tankName: String = "", var tankSize: Double = 0.0,
+                 var numFish: Int = 0, var avgFishLength: Int = 0, var planted: Boolean = false,
                  var waterChangePercent: String = "") {
 }
