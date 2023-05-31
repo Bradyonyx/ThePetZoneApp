@@ -10,5 +10,7 @@
     <string name="week"> week.</string>
     <string name="month"> month.</string>
     <string name="warning">Please fill in all fields</string>
+    <string name="about">About the Calculator</string>
+    <string name="about_info">Water changes are necessary to maintain water quality in an aquarium. This calculator provides a rough estimate for how frequently you should perform water changes on your fish tank. This calculator specifically focuses on nitrate production. It determines nitrate production per day by multipling the average fish length by the number of fish, and then by 0.4 (the assumed ppm of nitrate production per inch of fish). Denoting the tank as planted cuts the nitrate production in half. That number is then multiplied by the remaining volume of the tank after a water change, and divided by the total volume of the tank. This equation is used by an algorithm to determine the necessary water change percentage.</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
