@@ -1,12 +1,12 @@
 package com.example.thepetzoneapp
 
 import android.os.Bundle
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
+import androidx.navigation.findNavController
+import androidx.navigation.ui.NavigationUI
 import com.example.thepetzoneapp.databinding.FragmentCalculatedWaterChangeBinding
 import com.example.thepetzoneapp.databinding.FragmentTankInfoUserInputBinding
 import java.text.DecimalFormat
@@ -31,6 +31,7 @@ class CalculatedWaterChangeFragment : Fragment() {
         var rate = getString(R.string.week)
         if(!weekly) rate = getString(R.string.month)
         binding.calculatedWaterChangeInfoText.text = getString(R.string.wtr_chng_info1) + " " + dec.format(waterChangeSizePercent*100) + "% (" + waterChangeSizeGal + " gal) " + getString(R.string.wtr_chng_info2) + " " + rate
+        setHasOptionsMenu(true)
         return binding.root
     }
 
@@ -58,5 +59,15 @@ class CalculatedWaterChangeFragment : Fragment() {
             if(viewModel.getPlanted(tankNumIndex)) nitrateProductionPerWeek = nitrateProductionPerWeek/2
         }
         return nitrateProductionPerWeek
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        inflater.inflate(R.menu.options_menu, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return NavigationUI.onNavDestinationSelected(item, requireView().findNavController())
+                || super.onOptionsItemSelected(item)
     }
 }

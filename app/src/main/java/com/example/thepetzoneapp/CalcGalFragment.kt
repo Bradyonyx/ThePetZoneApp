@@ -1,13 +1,12 @@
 package com.example.thepetzoneapp
 
 import android.os.Bundle
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.navigation.findNavController
+import androidx.navigation.ui.NavigationUI
 import com.example.thepetzoneapp.databinding.FragmentCalcGalBinding
 import com.example.thepetzoneapp.databinding.FragmentTankInfoUserInputBinding
 import com.example.thepetzoneapp.databinding.FragmentTankListBinding
@@ -33,6 +32,17 @@ class CalcGalFragment : Fragment() {
             viewModel.setGal(tankNumIndex,gallon)
             binding.root.findNavController().navigateUp()
         }
+        setHasOptionsMenu(true)
         return binding.root
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        inflater.inflate(R.menu.options_menu, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return NavigationUI.onNavDestinationSelected(item, requireView().findNavController())
+                || super.onOptionsItemSelected(item)
     }
 }
