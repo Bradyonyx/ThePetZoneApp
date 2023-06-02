@@ -47,4 +47,13 @@ class TankViewModel : ViewModel() {
     fun getPlanted(tankIndex: Int): Boolean {
         return tankList.find{it.tankNum == tankIndex}!!.planted
     }
+    fun setTankList(savedList : MutableList<Tank>) {
+        tankList.clear()
+        tankNumber = 0
+        for(tank in savedList) {
+            addTank()
+            setGal(tank.tankNum,tank.tankSize)
+            setTankInfo(tank.tankNum,tank.numFish,tank.avgFishLength,tank.planted)
+        }
+    }
 }

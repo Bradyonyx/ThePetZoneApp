@@ -25,10 +25,10 @@ class CalcGalFragment : Fragment() {
         val args = CalcGalFragmentArgs.fromBundle((requireArguments()))
         tankNumIndex = args.tankNum
         binding.calculateGallonDataButton.setOnClickListener {
-            var length = Integer.parseInt(binding.lengthInput.getText().toString())
-            var width = Integer.parseInt(binding.widthInput.getText().toString())
-            var depth = Integer.parseInt(binding.depthInput.getText().toString())
-            var gallon = (length*width*depth)/231.0
+            val length = Integer.parseInt(binding.lengthInput.getText().toString())
+            val width = Integer.parseInt(binding.widthInput.getText().toString())
+            val depth = Integer.parseInt(binding.depthInput.getText().toString())
+            val gallon = (length*width*depth)/231.0
             viewModel.setGal(tankNumIndex,gallon)
             binding.root.findNavController().navigateUp()
         }

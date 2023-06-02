@@ -20,6 +20,7 @@ class TankListFragment : Fragment() {
     private var _binding: FragmentTankListBinding? = null
     private val binding get() = _binding!!
     lateinit var dbRef : DatabaseReference
+    val tankList = mutableListOf<Tank>()
     private val viewModel : TankViewModel by activityViewModels ()
 
     override fun onCreateView(
@@ -27,30 +28,30 @@ class TankListFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentTankListBinding.inflate(inflater,container,false)
+        val adapter = TankAdapter(viewModel.tankList)
+        binding.recyclerView.adapter = adapter
         dbRef = Firebase.database.reference
-        viewModel.observableTankList.observe(viewLifecycleOwner, Observer {tankList ->
-            binding.recyclerView.adapter = TankAdapter(tankList)
-            dbRef.child("tank").push().setValue(tankList[viewModel.tankNumber - 1])
-        })
-
         dbRef.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 val allDBEntries = snapshot.children
-                val tankList = mutableListOf<Tank>()
-                val adapter = TankAdapter(tankList)
-                for(allTanks in allDBEntries){
-                    for(singleTank in allTanks.children) {
-                        val tankNum = singleTank.child("tankNum").getValue().toString().toInt()
-                        val tankName = singleTank.child("tankName").getValue().toString()
-                        val tankSize = singleTank.child("tankSize").getValue().toString().toDouble()
-                        val numFish = singleTank.child("numFish").getValue().toString().toInt()
-                        val avgFishLength = singleTank.child("avgFishLength").getValue().toString().toInt()
-                        val planted = singleTank.child("planted").getValue().toString().toBoolean()
-                        val waterChangePercent = singleTank.child("waterChangePercent").getValue().toString()
-                        tankList.add(Tank(tankNum,tankName,tankSize,numFish,avgFishLength,planted,waterChangePercent))
-                        adapter.notifyDataSetChanged()
+                tankList.clear()
+                for(listOfTanks in allDBEntries) {
+                    for(allTanks in listOfTanks.children){
+                        for(singleTank in allTanks.children) {
+                            val tankNum = singleTank.child("tankNum").getValue().toString().toInt()
+                            val tankName = singleTank.child("tankName").getValue().toString()
+                            val tankSize = singleTank.child("tankSize").getValue().toString().toDouble()
+                            val numFish = singleTank.child("numFish").getValue().toString().toInt()
+                            val avgFishLength = singleTank.child("avgFishLength").getValue().toString().toInt()
+                            val planted = singleTank.child("planted").getValue().toString().toBoolean()
+                            val waterChangePercent = singleTank.child("waterChangePercent").getValue().toString()
+                            tankList.add(Tank(tankNum,tankName,tankSize,numFish,avgFishLength,planted,waterChangePercent))
+                        }
                     }
                 }
+
+                viewModel.setTankList(tankList)
+                adapter.notifyDataSetChanged()
             }
             override fun onCancelled(error: DatabaseError) {
                 Log.w("TankListFragment", "Failed to read value.", error.toException())
@@ -58,6 +59,8 @@ class TankListFragment : Fragment() {
         })
         binding.addTankButton.setOnClickListener {
             viewModel.addTank()
+            dbRef.removeValue()
+            dbRef.child("tankList").push().setValue(viewModel.tankList)
             binding.addTankButton.findNavController().navigate(TankListFragmentDirections.actionTankListFragmentToTankInfoUserInputFragment(viewModel.tankNumber))
         }
         setHasOptionsMenu(true)

@@ -10,6 +10,9 @@ import androidx.fragment.app.activityViewModels
 import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
 import com.example.thepetzoneapp.databinding.FragmentTankInfoUserInputBinding
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.ktx.database
+import com.google.firebase.ktx.Firebase
 import java.text.DecimalFormat
 
 class TankInfoUserInputFragment : Fragment() {
@@ -17,6 +20,7 @@ class TankInfoUserInputFragment : Fragment() {
     private val binding get() = _binding!!
     private val viewModel : TankViewModel by activityViewModels ()
     var tankNumIndex = 0
+    lateinit var dbRef : DatabaseReference
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -25,6 +29,7 @@ class TankInfoUserInputFragment : Fragment() {
         _binding = FragmentTankInfoUserInputBinding.inflate(inflater,container,false)
         val args = TankInfoUserInputFragmentArgs.fromBundle((requireArguments()))
         tankNumIndex = args.tankNum
+        dbRef = Firebase.database.reference
         if(viewModel.getTankSize(tankNumIndex) > 0.0){
             val dec = DecimalFormat("#,###.0")
             binding.tankSizeCalculated.text = dec.format(viewModel.getTankSize(tankNumIndex)).toString()
