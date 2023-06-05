@@ -61,6 +61,9 @@ class TankListFragment : Fragment() {
             viewModel.addTank()
             binding.addTankButton.findNavController().navigate(TankListFragmentDirections.actionTankListFragmentToTankInfoUserInputFragment(viewModel.tankNumber))
         }
+        binding.removeTankButton.setOnClickListener {
+            dbRef.removeValue()
+        }
         setHasOptionsMenu(true)
         return binding.root
     }

@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">The Pet Zone App</string>
     <string name="add_tank">Add Tank</string>
+    <string name="clear_tanks">Clear Tanks</string>
     <string name="gallons"> Gallons</string>
     <string name="fish"> Fish</string>
     <string name="planted">Planted</string>
